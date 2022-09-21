@@ -1,0 +1,29 @@
+h1 {
+  font-size: 45px !important;
+}
+
+p {
+  font-size: 20px;
+}
+
+a {
+  font-size: 20px !important;
+}
+
+.bg-pic {
+  background-image: url("https://cdn.pixabay.com/photo/2017/05/08/02/22/game-2294201_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+}
+
+.h1-home {
+  font-size: 70px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .h1-home {
+    font-size: 40px !important;
+  }
+}
