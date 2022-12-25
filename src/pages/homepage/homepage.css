@@ -11,11 +11,10 @@ a {
 }
 
 .bg-pic {
-  background-image: url("https://cdn.pixabay.com/photo/2017/05/08/02/22/game-2294201_960_720.jpg");
+  background-image: url("/public/images/iphone-gb12430061_1280.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  height: 700px;
+  height: 1000px;
 }
 
 .h1-home {

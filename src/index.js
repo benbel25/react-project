@@ -13,6 +13,7 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import store from "./store/index";
 
+
 axios.defaults.baseURL = "http://localhost:3001/api";
 
 axios.interceptors.request.use((config) => {
@@ -23,7 +24,9 @@ axios.interceptors.request.use((config) => {
   return config;
 });
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>

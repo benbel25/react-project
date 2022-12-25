@@ -65,11 +65,7 @@ const SigninPage = () => {
         .then(({ data }) => {
           console.log("data", data);
           afterLogin(data.token);
-          if (data.biz === true) {
-            history.push("/createbizcard");
-          } else {
-            history.push("/");
-          }
+          history.push("/");
           toast("welcome!");
         })
         .catch((err) => {

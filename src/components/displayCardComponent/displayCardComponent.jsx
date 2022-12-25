@@ -1,9 +1,11 @@
+import { useSelector } from "react-redux";
+
 const DisplayCardsComponent = ({
-  bizName,
-  bizDescription,
-  bizImage,
-  bizPhone,
-  bizAddress,
+  productName,
+  productDescription,
+  productImage,
+  productQuantity,
+  productPrice,
   _id,
   onDelete,
   onEdit,
@@ -14,16 +16,11 @@ const DisplayCardsComponent = ({
   const handleEditBtnClick = () => {
     onEdit(_id);
   };
-  return (
-    <div className="card m-1">
-      <img src={bizImage} className="card-img-top" alt="..." />
-      <div className="card-body">
-        <h5 className="card-title">{bizName}</h5>
-        <p className="card-text">{bizDescription}</p>
-        <ul className="list-group list-group-flush">
-          <li className="list-group-item">{bizPhone}</li>
-          <li className="list-group-item">{bizAddress}</li>
-        </ul>
+  const userData = useSelector((state) => state.auth.userData);
+
+  const showBtns = () => {
+    if (userData.admin === true) {
+      return (
         <div className="card-body">
           <button
             className="card-link btn btn-warning"
@@ -38,6 +35,20 @@ const DisplayCardsComponent = ({
             Delete
           </button>
         </div>
+      );
+    }
+  };
+  return (
+    <div className="card m-1">
+      <img src={productImage} className="card-img-top" alt="..." />
+      <div className="card-body">
+        <h5 className="card-title">{productName}</h5>
+        <p className="card-text">{productDescription}</p>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">{productQuantity}</li>
+          <li className="list-group-item">{productPrice}</li>
+        </ul>
+        {showBtns()}
       </div>
     </div>
   );

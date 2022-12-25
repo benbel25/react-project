@@ -49,7 +49,7 @@ const SignupPage = () => {
           name: name,
           email: email,
           password: password,
-          biz: false,
+          admin: false,
         })
         .then((res) => {
           toast.success("You have successfully registered");

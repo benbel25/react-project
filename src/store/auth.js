@@ -5,6 +5,10 @@ const initalAuthState = {
   userData: {},
 };
 
+const isAdmin = (userData) => {
+  return userData.admin;
+};
+
 const authSlice = createSlice({
   name: "auth",
 
@@ -13,6 +17,8 @@ const authSlice = createSlice({
   reducers: {
     login(state) {
       state.loggedIn = true;
+      
+      //state.isAdmin = (state.userData);
     },
 
     logout(state) {
@@ -21,6 +27,7 @@ const authSlice = createSlice({
     },
     updateUserData(state, action) {
       state.userData = action.payload;
+      console.log(state.userData);
     },
   },
 });

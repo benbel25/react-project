@@ -12,6 +12,16 @@ const Navbar = () => {
       return (
         <Fragment>
           <li className="nav-item">
+            <NavLink className="nav-link" to="/mycards">
+              Products
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/">
+              Favorites
+            </NavLink>
+          </li>
+          <li className="nav-item">
             <NavLink className="nav-link" to="/">
               {userData.email}
             </NavLink>
@@ -37,26 +47,36 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/business">
-              Business
+            <NavLink className="nav-link" to="/admin">
+              Admin
             </NavLink>
           </li>
         </Fragment>
       );
     }
   };
-  const showBiz = () => {
-    if (userData.biz === true) {
+  const showAdmin = () => {
+    if (userData.admin === true) {
       return (
         <Fragment>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/mycards">
-              My Cards
+            <NavLink className="nav-link" to="/createproductcard">
+              Create product card
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/createbizcard">
-              Create biz card
+            <NavLink className="nav-link" to="/">
+              Hello Admin!
+            </NavLink>
+          </li>
+        </Fragment>
+      );
+    } else if (userData.admin === false) {
+      return (
+        <Fragment>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/">
+              Hello User!
             </NavLink>
           </li>
         </Fragment>
@@ -72,7 +92,7 @@ const Navbar = () => {
     >
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
-          B.B Games
+          Home
         </NavLink>
         <button
           className="navbar-toggler"
@@ -92,7 +112,7 @@ const Navbar = () => {
                 About
               </NavLink>
             </li>
-            {showBiz()}
+            {showAdmin()}
             {showLogin()}
           </ul>
         </div>

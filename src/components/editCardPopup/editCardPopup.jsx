@@ -7,27 +7,29 @@ import "./editCardPopup.css";
 import cardSchmea from "../../validation/card";
 import Joi from "joi-browser";
 
-const EditBizCardPopupComponent = (props) => {
-  const [bizName, setBizName] = useState(props.bizName);
-  const [bizDescription, setBizDescription] = useState(props.bizDescription);
-  const [bizAddress, setBizAddress] = useState(props.bizAddress);
-  const [bizPhone, setBizPhone] = useState(props.bizPhone);
-  const [bizImage, setBizImage] = useState(props.bizImage);
+const EditProductCardPopupComponent = (props) => {
+  const [productName, setProductName] = useState(props.productName);
+  const [productDescription, setProductDescription] = useState(
+    props.productDescription
+  );
+  const [productPrice, setProductPrice] = useState(props.productPrice);
+  const [productQuantity, setProductQuantity] = useState(props.productQuantity);
+  const [productImage, setProductImage] = useState(props.productImage);
 
-  const handleBizNameChange = (ev) => {
-    setBizName(ev.target.value);
+  const handleProductNameChange = (ev) => {
+    setProductName(ev.target.value);
   };
-  const handleBizDescriptionChange = (ev) => {
-    setBizDescription(ev.target.value);
+  const handleProductDescriptionChange = (ev) => {
+    setProductDescription(ev.target.value);
   };
-  const handleBizAddressChange = (ev) => {
-    setBizAddress(ev.target.value);
+  const handleProductPriceChange = (ev) => {
+    setProductPrice(ev.target.value);
   };
-  const handleBizPhoneChange = (ev) => {
-    setBizPhone(ev.target.value);
+  const handleProductQuantityChange = (ev) => {
+    setProductQuantity(ev.target.value);
   };
-  const handleBizImageChange = (ev) => {
-    setBizImage(ev.target.value);
+  const handleProductImageChange = (ev) => {
+    setProductImage(ev.target.value);
   };
 
   const handleSubmit = (ev) => {
@@ -40,7 +42,13 @@ const EditBizCardPopupComponent = (props) => {
 
   const handleConfirmClick = () => {
     const validatedValue = Joi.validate(
-      { bizName, bizDescription, bizAddress, bizPhone, bizImage },
+      {
+        productName,
+        productDescription,
+        productPrice,
+        productQuantity,
+        productImage,
+      },
       cardSchmea,
       {
         abortEarly: false,
@@ -53,13 +61,13 @@ const EditBizCardPopupComponent = (props) => {
       }
     } else {
       let dataToSend = {
-        bizName,
-        bizDescription,
-        bizAddress,
-        bizPhone,
+        productName,
+        productDescription,
+        productPrice,
+        productQuantity,
       };
-      if (bizImage) {
-        dataToSend.bizImage = bizImage;
+      if (productImage) {
+        dataToSend.productImage = productImage;
       }
       props.onEditDone(props._id, dataToSend);
     }
@@ -81,62 +89,62 @@ const EditBizCardPopupComponent = (props) => {
         </div>
         <div className="mb-3">
           <label htmlFor="bizNameInput" className="form-label">
-            Biz Name:
+            Product Name:
           </label>
           <input
             type="text"
             className="form-control popupInput"
             id="bizNameInput"
-            value={bizName}
-            onChange={handleBizNameChange}
+            value={productName}
+            onChange={handleProductNameChange}
           />
         </div>
         <div className="mb-3">
           <label htmlFor="bizDescriptionInput" className="form-label">
-            Biz Description:
+            Product Description:
           </label>
           <input
             type="text"
             className="form-control popupInput"
             id="bizDescriptionInput"
-            value={bizDescription}
-            onChange={handleBizDescriptionChange}
+            value={productDescription}
+            onChange={handleProductDescriptionChange}
           />
         </div>
         <div className="mb-3">
           <label htmlFor="bizAddressInput" className="form-label">
-            Biz Address:
+            Product Price:
           </label>
           <input
             type="text"
             className="form-control popupInput"
             id="bizAddressInput"
-            value={bizAddress}
-            onChange={handleBizAddressChange}
+            value={productPrice}
+            onChange={handleProductPriceChange}
           />
         </div>
         <div className="mb-3">
           <label htmlFor="bizPhoneInput" className="form-label">
-            Biz Phone:
+            Product Quantity:
           </label>
           <input
             type="text"
             className="form-control popupInput"
             id="bizPhoneInput"
-            value={bizPhone}
-            onChange={handleBizPhoneChange}
+            value={productQuantity}
+            onChange={handleProductQuantityChange}
           />
         </div>
         <div className="mb-3">
           <label htmlFor="bizImageInput" className="form-label">
-            Biz Image (url):
+            Product Image (url):
           </label>
           <input
             type="text"
             className="form-control popupInput"
             id="bizImageInput"
-            value={bizImage}
-            onChange={handleBizImageChange}
+            value={productImage}
+            onChange={handleProductImageChange}
           />
         </div>
         <div className="row">
@@ -164,4 +172,4 @@ const EditBizCardPopupComponent = (props) => {
   );
 };
 
-export default EditBizCardPopupComponent;
+export default EditProductCardPopupComponent;

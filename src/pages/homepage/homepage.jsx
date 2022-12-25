@@ -4,12 +4,9 @@ const HomePage = () => {
   return (
     <Fragment>
       <div className="bg-image p-5 text-center shadow-1-strong  mb-5 text-white bg-pic">
-        <h1 className="text-center mt-5 h1-home">
-          Welcome to the place where you can <br /> exchange games with other
-          people for free!
-          <br />
-          <br />
-          B.B Games
+        <h1 className="text-center mt-5 h1-home text-black">
+          Welcome to the best online phone store! <br /> <br /> Here you can
+          find every phone you want and for cheap price
         </h1>
       </div>
       <div className="container mt-4">

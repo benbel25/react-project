@@ -5,27 +5,27 @@ import Joi from "joi-browser";
 import cardSchmea from "../../validation/card";
 import { useHistory } from "react-router-dom";
 
-const CreateBizCardPage = () => {
-  const [bizName, setBizName] = useState("");
-  const [bizDescription, setBizDescription] = useState("");
-  const [bizAddress, setBizAddress] = useState("");
-  const [bizPhone, setBizPhone] = useState("");
-  const [bizImage, setBizImage] = useState("");
+const CreateProductCardPage = () => {
+  const [productName, setProductName] = useState("");
+  const [productDescription, setProductDescription] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productQuantity, setProductQuantity] = useState("");
+  const [productImage, setProductImage] = useState("");
 
-  const handleBizNameChange = (ev) => {
-    setBizName(ev.target.value);
+  const handleProductNameChange = (ev) => {
+    setProductName(ev.target.value);
   };
-  const handleBizDescriptionChange = (ev) => {
-    setBizDescription(ev.target.value);
+  const handleProductDescriptionChange = (ev) => {
+    setProductDescription(ev.target.value);
   };
-  const handleBizAddressChange = (ev) => {
-    setBizAddress(ev.target.value);
+  const handleProductPriceChange = (ev) => {
+    setProductPrice(ev.target.value);
   };
-  const handleBizPhoneChange = (ev) => {
-    setBizPhone(ev.target.value);
+  const handleProductQuantityChange = (ev) => {
+    setProductQuantity(ev.target.value);
   };
-  const handleBizImageChange = (ev) => {
-    setBizImage(ev.target.value);
+  const handleProductImageChange = (ev) => {
+    setProductImage(ev.target.value);
   };
 
   const history = useHistory();
@@ -33,7 +33,13 @@ const CreateBizCardPage = () => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
     const validatedValue = Joi.validate(
-      { bizName, bizDescription, bizAddress, bizPhone, bizImage },
+      {
+        productName,
+        productDescription,
+        productPrice,
+        productQuantity,
+        productImage,
+      },
       cardSchmea,
       {
         abortEarly: false,
@@ -46,13 +52,13 @@ const CreateBizCardPage = () => {
       }
     } else {
       let dataToSend = {
-        bizName,
-        bizDescription,
-        bizAddress,
-        bizPhone,
+        productName,
+        productDescription,
+        productPrice,
+        productQuantity,
       };
-      if (bizImage) {
-        dataToSend.bizImage = bizImage;
+      if (productImage) {
+        dataToSend.productImage = productImage;
       }
       axios
         .post("/cards", dataToSend)
@@ -69,67 +75,67 @@ const CreateBizCardPage = () => {
 
   return (
     <div className="container">
-      <h1>Create Business Card</h1>
-      <p>Open business card!</p>
+      <h1>Create Card</h1>
+      <p>Create product card!</p>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="bizNameInput" className="form-label">
-            Biz Name:
+            Product Name:
           </label>
           <input
             type="text"
             className="form-control"
             id="bizNameInput"
-            value={bizName}
-            onChange={handleBizNameChange}
+            value={productName}
+            onChange={handleProductNameChange}
           />
         </div>
         <div className="mb-3">
           <label htmlFor="bizDescriptionInput" className="form-label">
-            Biz Description:
+            Product Description:
           </label>
           <input
             type="text"
             className="form-control"
             id="bizDescriptionInput"
-            value={bizDescription}
-            onChange={handleBizDescriptionChange}
+            value={productDescription}
+            onChange={handleProductDescriptionChange}
           />
         </div>
         <div className="mb-3">
           <label htmlFor="bizAddressInput" className="form-label">
-            Biz Address:
+            Product Price:
           </label>
           <input
             type="text"
             className="form-control"
             id="bizAddressInput"
-            value={bizAddress}
-            onChange={handleBizAddressChange}
+            value={productPrice}
+            onChange={handleProductPriceChange}
           />
         </div>
         <div className="mb-3">
           <label htmlFor="bizPhoneInput" className="form-label">
-            Biz Phone:
+            Product Quantity:
           </label>
           <input
             type="text"
             className="form-control"
             id="bizPhoneInput"
-            value={bizPhone}
-            onChange={handleBizPhoneChange}
+            value={productQuantity}
+            onChange={handleProductQuantityChange}
           />
         </div>
         <div className="mb-3">
           <label htmlFor="bizImageInput" className="form-label">
-            Biz Image (url):
+            Product Image (url):
           </label>
           <input
             type="text"
             className="form-control"
             id="bizImageInput"
-            value={bizImage}
-            onChange={handleBizImageChange}
+            value={productImage}
+            onChange={handleProductImageChange}
           />
         </div>
         <button type="submit" className="btn btn-primary">
@@ -140,4 +146,4 @@ const CreateBizCardPage = () => {
   );
 };
 
-export default CreateBizCardPage;
+export default CreateProductCardPage;

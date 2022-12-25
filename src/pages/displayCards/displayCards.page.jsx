@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { cloneDeep } from "lodash";
 import { toast } from "react-toastify";
 import DisplayCardsComponent from "../../components/displayCardComponent/displayCardComponent";
-import EditBizCardPopupComponent from "../../components/editCardPopup/editCardPopup";
+import EditProductCardPopupComponent from "../../components/editCardPopup/editCardPopup";
 
 const DisplayCards = () => {
   const [cardsArr, setCardsArr] = useState([]);
@@ -124,7 +124,7 @@ const DisplayCards = () => {
       <h1>My Cards</h1>
       {renderRowsFromArr(cardsArr)}
       {dataToEdit && (
-        <EditBizCardPopupComponent
+        <EditProductCardPopupComponent
           onCancelEdit={handleCancelEdit}
           onEditDone={handleEditCard}
           {...dataToEdit}

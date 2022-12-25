@@ -5,14 +5,14 @@ import "./App.css";
 import Footer from "./components/footer/footer.component";
 import Navbar from "./components/navbar/navbar.component";
 import AboutPage from "./pages/about/about.page";
-import BusinessPage from "./pages/business/business.page";
+import AdminUserPage from "./pages/adminUser/adminUserPage";
 import HomePage from "./pages/homepage/homepage";
 import SigninPage from "./pages/signin/signin.page";
 import SignupPage from "./pages/signup/signup.page";
 import LogoutPage from "./pages/logout/logout.page";
 import AuthGuardRoute from "./components/AuthGuardRoute";
 import DisplayCards from "./pages/displayCards/displayCards.page";
-import CreateBizCardPage from "./pages/createBizCard/createBizCard";
+import CreateProductCardPage from "./pages/createProductCard/createProductCard";
 
 function App() {
   return (
@@ -32,11 +32,11 @@ function App() {
         <Route path="/signup">
           <SignupPage />
         </Route>
-        <Route path="/business">
-          <BusinessPage />
+        <Route path="/admin">
+          <AdminUserPage />
         </Route>
-        <Route path="/createbizcard">
-          <CreateBizCardPage />
+        <Route path="/createproductcard">
+          <CreateProductCardPage />
         </Route>
         <AuthGuardRoute
           path="/mycards"

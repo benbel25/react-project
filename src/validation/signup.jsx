@@ -7,7 +7,12 @@ const signUpSchema = {
     .max(320)
     .required()
     .regex(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
-  password: Joi.string().min(8).max(1024).required(),
+  password: Joi.string()
+    .max(1024)
+    .required()
+    .regex(
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]{4,})(?=.*?[#?!@$%^&*-]).{8,}$/
+    ),
 };
 
 export default signUpSchema;

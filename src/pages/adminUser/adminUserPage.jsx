@@ -5,7 +5,7 @@ import Joi from "joi-browser";
 import signUpSchema from "../../validation/signup";
 import { useHistory } from "react-router-dom";
 
-const BusinessPage = () => {
+const AdminUserPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,12 +48,12 @@ const BusinessPage = () => {
           name: name,
           email: email,
           password: password,
-          biz: true,
+          admin: true,
         })
         .then((res) => {
           console.log(res.data);
           toast.success("You have successfully registered");
-          history.push("/signin", { email: email, password: password });
+          history.push("/signin");
         })
         .catch((err) => {
           console.log("err from axios", err);
@@ -65,7 +65,7 @@ const BusinessPage = () => {
   };
   return (
     <div className="container mt-3">
-      <h1>Business registerion form!</h1>
+      <h1>Admin registerion form!</h1>
       <p>open business account for free!</p>
       <form className="mx-auto" onSubmit={handleSubmit}>
         <div className="mb-3 mt-4">
@@ -124,10 +124,10 @@ const BusinessPage = () => {
         </div>
 
         <button type="submit" className="btn btn-primary">
-          Next
+          Singup
         </button>
       </form>
     </div>
   );
 };
-export default BusinessPage;
+export default AdminUserPage;
